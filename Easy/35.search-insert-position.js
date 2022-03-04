@@ -12,22 +12,21 @@
  */
 var searchInsert = function (nums, target) {
     let position = null
-    for (let i = 0; i < nums.length; i++) {
-
-        if (nums[i] === target) return i
-
-        if (nums[i] > target) {
-            return i
-        } else {
-            return i + 1
+    let low = 0
+    let high = nums.length
+    while(low<high){
+        const mid = low + Math.floor((high-low)/2)
+        if (nums[mid] === target) {
+            return mid
+        }else if(nums[mid]>target){
+            high=mid
+        }else{
+            low = mid+1
         }
-
-        // position = i
-
-
     }
-
-    // return position
+    position = low
+    return position
+    
 
 };
 
